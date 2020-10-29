@@ -1,0 +1,331 @@
+WindowManager:
+    id: screen_manager
+    MainWindow:
+        manager: screen_manager
+    ShirtsWindow:
+        manager: screen_manager
+    PantsWindow:
+        manager: screen_manager
+    ShoesWindow:
+        manager: screen_manager
+
+
+
+
+<MainWindow>:
+    id: main
+    name: "main"
+    item : item
+    GridLayout:
+        cols:2
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Item Name: "
+
+            TextInput:
+                id: item
+                multiline: False
+
+        GridLayout:
+            cols: 3
+
+            Button:
+                text: "Shirts"
+                on_release:
+                    app.root.current = "shirts"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Pants"
+                on_release:
+                    app.root.current = "pants"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Shoes"
+                on_release:
+                    app.root.current = "shoes"
+                    root.manager.transition.direction = "left"
+        Button:
+            text: "Clear"
+            on_release:
+                root.clean()
+        Button:
+            text: "Submit"
+            on_release:
+                root.submit()
+
+<P>:
+    Label:
+        text: "You pressed the button"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+    Button:
+        text: "You pressed the button"
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "y":0.1}
+
+
+<ShirtsWindow>:
+    id: shirts
+    name: "shirts"
+    szXXS: szXXS
+    szXS: szXS
+    szS: szS
+    szM: szM
+    szL: szL
+    szXL: szXL
+    szXXL: szXXL
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 7
+
+            Label:
+                text: "XXS"
+            Label:
+                text: "XS"
+            Label:
+                text: "S"
+            Label:
+                text: "M"
+            Label:
+                text: "L"
+            Label:
+                text: "XL"
+            Label:
+                text: "XXL"
+
+            CheckBox:
+                id: szXXS
+                text: "szXXS"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szXS
+                text: "szXS"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szS
+                text: "szS"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szM
+                text: "szM"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szL
+                text: "szL"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szXL
+                text: "szXL"
+                active : False
+                on_active:
+                    root.gender = self.text
+            CheckBox:
+                id: szXXL
+                active : False
+                text: "szXXL"
+                on_active:
+                    root.gender = self.text
+
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Go Back"
+                on_release:
+                    root.insert_data()
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Clear"
+                on_release:
+                    root.clean()
+            Button:
+                text: "All Sizes"
+                on_release:
+                    root.selectAll()
+<PantsWindow>:
+    id: pants
+    name: "pants"
+    sz26: sz26
+    sz27: sz27
+    sz28: sz28
+    sz29: sz29
+    sz30: sz30
+    sz31: sz31
+    sz32: sz32
+    sz33: sz33
+    sz34: sz34
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 9
+            Label:
+                text: "26"
+            Label:
+                text: "27"
+            Label:
+                text: "28"
+            Label:
+                text: "29"
+            Label:
+                text: "30"
+            Label:
+                text: "31"
+            Label:
+                text: "32"
+            Label:
+                text: "33"
+            Label:
+                text: "34"
+            CheckBox:
+                id:sz26
+                active : False
+            CheckBox:
+                id: sz27
+                active : False
+            CheckBox:
+                id: sz28
+                active : False
+            CheckBox:
+                id: sz29
+                active : False
+            CheckBox:
+                id: sz30
+                active : False
+            CheckBox:
+                id: sz31
+                active : False
+            CheckBox:
+                id: sz32
+                active : False
+            CheckBox:
+                id: sz33
+                active : False
+            CheckBox:
+                id: sz34
+                active : False
+
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Go Back"
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Clear"
+                on_release:
+                    root.clean()
+            Button:
+                text: "All Sizes"
+                on_release:
+                    root.selectAll()
+<ShoesWindow>:
+    id: shoes
+    name: "shoes"
+    sz7: sz7
+    sz7_5: sz7_5
+    sz8: sz8
+    sz8_5: sz8_5
+    sz9: sz9
+    sz9_5: sz9_5
+    sz10: sz10
+    sz10_5: sz10_5
+    sz11: sz11
+    sz11_5: sz11_5
+    sz12: sz12
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 11
+            Label:
+                text: "7"
+            Label:
+                text: "7.5"
+            Label:
+                text: "8"
+            Label:
+                text: "8.5"
+            Label:
+                text: "9"
+            Label:
+                text: "9.5"
+            Label:
+                text: "10"
+            Label:
+                text: "10.5"
+            Label:
+                text: "11"
+            Label:
+                text: "11.5"
+            Label:
+                text: "12"
+            CheckBox:
+                id : sz7
+                active : False
+            CheckBox:
+                id : sz7_5
+                active : False
+            CheckBox:
+                id : sz8
+                active : False
+            CheckBox:
+                id : sz8_5
+                active : False
+            CheckBox:
+                id : sz9
+                active : False
+            CheckBox:
+                id : sz9_5
+                active : False
+            CheckBox:
+                id : sz10
+                active : False
+            CheckBox:
+                id : sz10_5
+                active : False
+            CheckBox:
+                id : sz11
+                active : False
+            CheckBox:
+                id : sz11_5
+                active : False
+            CheckBox:
+                id : sz12
+                active : False
+
+
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Go Back"
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Clear"
+                on_release:
+                    root.clean()
+            Button:
+                text: "All Sizes"
+                on_release:
+                    root.selectAll()
